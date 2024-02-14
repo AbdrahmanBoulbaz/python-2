@@ -1,13 +1,22 @@
-t_list = ["Hello", "tata!"]
-ft_tuple = ("Hello", "toto!")
-ft_set = {"Hello", "tutu!"}
-ft_dict = {"Hello" : "titi!"}
-def all_thing_is_obj(item):
-    return type(item)
-print(all_thing_is_obj(t_list))
-print(all_thing_is_obj(ft_tuple))
-print(all_thing_is_obj(ft_set))
-print(all_thing_is_obj(ft_dict))
-print(all_thing_is_obj("Brian"))
-print(all_thing_is_obj("Toto"))
-print(all_thing_is_obj(10))
+import time
+from datetime import datetime
+
+def format_time():
+
+    current_time = time.time()
+
+
+    formatted_seconds = f"{current_time:,.4f}"  
+
+    
+    scientific_notation = f"{current_time:.2e}"
+
+
+    current_date = datetime.now().strftime("%b %d %Y")
+
+    
+    print(f"Seconds since January 1, 1970: {formatted_seconds} or {scientific_notation} in scientific notation")
+    print(current_date)
+
+if __name__ == "__main__":
+ format_time()
