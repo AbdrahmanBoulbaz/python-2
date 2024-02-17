@@ -1,24 +1,46 @@
-#kata 00 
-a = 19
-b = 42
-c = 21 
-print(f'kata = {a}, {b}, {c}')
-print("The 3 numbers are: 19, 42, 21")
 
-#kata 01
-kata = {
-  'Python': 'Guido van Rossum',
-  'Ruby': 'Yukihiro Matsumoto',
-}
+while True :
 
-print("Python was created by Guido van Rossum \n Ruby was created by Yukihiro Matsumoto \n PHP was created by Rasmus Lerdorf")
+   while True :
+     try:
+      first_number = float(input('entre le premié nomber :' ))
+      break
+     except ValueError :
+         print('please entere numinc variabl')
 
-#kata 02
-kata = (2019, 9, 25, 3, 30)
-print(kata)
-kata = '9/25/2019', '3:30'
-print(kata)
+   while True :
+    try:
+     op =input('enter opération  :')
+     if op in ('+','/','*','-') :
+        break
+     else:
+         raise ValueError
+    except ValueError :
+     print('invalid op pleas entrer / * + -')
+   while True :
+    try:
+     second_number = float(input('enter le dexiéme nomber :'))
+     if second_number == 0 and op == '/' :
+         raise ZeroDivisionError
+     break
+    except ValueError:
+       print('please entere numinc variabl')
+    except ZeroDivisionError:
+        print('cannot divide by zero , please enter the new number')
 
-#kata 03
-kata = " 0 1 2 3 4 5 6 7 8 9 "
-print('--------------------------'+ kata)
+   if op == '+':
+        résulta = first_number + second_number
+   elif op == '−':
+       résulta = first_number -second_number
+   elif op == '/':
+        résulta = first_number / second_number
+   elif op == '*':
+        résulta = first_number * second_number
+   else:
+        résulta = ('error')
+   print(résulta)
+   if résulta != None :
+     print('result is ',résulta)
+   else:
+      print('error')
+   break
