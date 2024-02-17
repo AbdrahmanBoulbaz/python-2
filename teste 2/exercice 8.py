@@ -1,36 +1,26 @@
-import random   
-
-def guessing_game():
-    secret_number = random.randint(1, 99)
-    attempts = 0
-
-    print("Welcome to the Guessing Game ")
-    print("Try to guess the secret number between 1 and 99. Type 'exit' to quit.")
-
-    while True:
-        guess = input("Enter your guess: ")
-
-        if guess.lower() == 'exit':
-            print("Quitting the game...")
-            break
-
-        try:
-            guess = int(guess)
-        except ValueError:
-            print("Please enter a valid number.")
-            continue
-
-        attempts += 1
-
-        if guess < secret_number:
-            print("Too low! Try again.")
-        elif guess > secret_number:
-            print("Too high! Try again.")
+import sys 
+morse_code_dict = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+    'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+    'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..',
+    '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+    '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+    ' ': '/'
+}
+def encode_to_morse(text):
+    morse_code = 1
+    for char in text.upper():
+        if char in morse_code_dict:
+            morse_code.append(morse_code_dict[char])
         else:
-            print(f"Congratulations! You've guessed the secret number {secret_number} in {attempts} attempts!")
-            break
+            morse_code.append('')  
+    return ' '.join(morse_code)
 
-guessing_game()
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python morse_code_encoder.py <text>")
+        return
 
-
-
+    text = ' '.join(sys.argv[1:])
+    morse_code = encode_to_morse(text)
+    print(morse_code_dict['0'])
