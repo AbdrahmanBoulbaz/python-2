@@ -1,9 +1,6 @@
-
-
-
 kata = {
-    "name" : "abdrahman" ,
-    "age"  : 15 , 
-    "country" : "maroc"
+  "name" : "abdrahman" ,
+  "age"  : 15 , 
+  "country" : "maroc"
 }
-print("Hello, my name is {}. I am {} years old and I am from {}.".format(kata["name"], kata["age"], kata["country"]))
+print(f"Hello, my name is {kata['name']}. I am {kata['age']} years old and I am from {kata['country']}.")
